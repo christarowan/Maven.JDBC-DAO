@@ -15,7 +15,7 @@ public class CarDAO implements IDAO {
     public CarDTO findById(int id) {
         Connection connection = ConnectionFactory.getConnection();
         try {
-            PreparedStatement ps = connection.prepareStatement("SELECT * FROM car WHERE id=? AND pass=?");
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM cars WHERE id=?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
@@ -39,6 +39,7 @@ public class CarDAO implements IDAO {
         car.setId(rs.getInt("id"));
         car.setMake(rs.getString("make"));
         car.setModel(rs.getString("model"));
+        // FIXME
         car.setColor(rs.getString("color"));
         car.setYear(rs.getInt("year"));
         car.setVin(rs.getString("vin"));

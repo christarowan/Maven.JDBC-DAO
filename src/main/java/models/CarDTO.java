@@ -65,4 +65,8 @@ public class CarDTO implements IcarDTO{
 
     public void setModel(String model) {
     }
+
+    public String toString() {
+        return id.toString()+make+model+color+vin;
+    }
 }
